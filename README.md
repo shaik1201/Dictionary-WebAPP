@@ -35,4 +35,4 @@ For example, if you search for the word "ball," you'll receive detailed informat
 
 ## Try It Out
 
-[View the deployed web app](https://your-app-url-here.com/)
+[View the deployed web app](https://master--astonishing-kringle-095ff2.netlify.app/)
