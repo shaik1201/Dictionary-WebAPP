@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     dictionaryApi();
-  }, [word, category])
+  }, [word, category, dictionaryApi])
 
   return (
     <div className="App" style={{ height: '100vh', backgroundColor: "#282c34", color: 'white' }}>
