@@ -1,6 +1,6 @@
 import axios from 'axios';
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Container } from '@mui/material';
 import Header from './components/Header/Header';
 import Definitions from './components/Definitions/Definitions';
@@ -11,19 +11,20 @@ function App() {
   const [category, setCategory] = useState('English')
 
 
-  const dictionaryApi = async () => {
+  // Define dictionaryApi as a useCallback
+  const dictionaryApi = useCallback(async () => {
     try {
-      const data = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
-      setMeanings(data.data)
+      const data = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+      setMeanings(data.data);
     } catch (err) {
       console.log(err);
     }
-  };
+  }, [word]);
 
 
   useEffect(() => {
     dictionaryApi();
-  }, [word, category, dictionaryApi])
+  }, [dictionaryApi])
 
   return (
     <div className="App" style={{ height: '100vh', backgroundColor: "#282c34", color: 'white' }}>
